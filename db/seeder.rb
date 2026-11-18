@@ -12,11 +12,21 @@ db.execute('CREATE TABLE todos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL, 
             description TEXT,
-            completed INTEGER DEFAULT 0 )')
+            priority INTEGER,
+            status INTEGER DEFAULT 0,
+            category_id INTEGER 
+)')
+db.execute('CREATE TABLE categories (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL, 
+            description TEXT,
+            color INTEGER     
+)')
+
 
 puts "🍎 Fyller på med data..."
-db.execute('INSERT INTO todos (name, description, completed) VALUES ("Köp mjölk", "3 lite mellanmjölk, eko", 1)')
-db.execute('INSERT INTO todos (name, description, completed) VALUES ("Köp julgran", "En rödgran", 0)')
-db.execute('INSERT INTO todos (name, description, completed) VALUES ("Pynta gran", "Glöm inte lamporna i granen och tomten", 0)')
+db.execute('INSERT INTO todos (name, description, priority, status, category_id) VALUES ("Köp mjölk", "3 lite mellanmjölk, eko", 0, 1, 0)')
+db.execute('INSERT INTO todos (name, description, priority, status, category_id) VALUES ("Köp julgran", "En rödgran", 0, 0, 0)')
+db.execute('INSERT INTO todos (name, description, priority, status, category_id) VALUES ("Pynta gran", "Glöm inte lamporna i granen och tomten", 0, 0, 0)')
 
 puts "✅ Databasen är seedad!"

@@ -1,1 +1,27 @@
-<img src="/img/glhf.png">
+<h1>Todo</h1>
+
+<ul class="items">
+  <% @todos.each do |todo| %>
+    <li class="item">
+      <a href="/todos/<%= todo['id'] %>">
+        <h2><%= todo['name'] %></h2>
+      </a>
+
+      <p><%= todo['description'] %></p>
+    </li>
+  <% end %>
+</ul>
+
+<h1>Färdiga</h1>
+
+<ul class="items">
+  <% @done.each do |todo| %>
+    <li class="item">
+      <a href="/todos/<%= todo['id'] %>">
+        <h2><%= todo['name'] %></h2>
+      </a>
+
+      <p><%= todo['description'] %></p>
+    </li>
+  <% end %>
+</ul>

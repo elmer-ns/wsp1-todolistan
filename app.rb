@@ -13,8 +13,30 @@ class App < Sinatra::Base
       return @db
     end
 
-    get '/' do        
+    get '/' do   
+        @todos = db.execute('
+            SELECT 
+                *
+            FROM todos
+            WHERE todos.status=0
+        ')
+
+        @done = db.execute('
+            SELECT 
+                *
+            FROM todos
+            WHERE todos.status=1
+        ')
+        
         erb(:'todos/index')
+    end
+
+    get '/todos/:id' do |id|
+        @todo = db.execute('
+                SELECT * FROM todos WHERE todos.id=?
+            ', id).first
+        
+        erb(:'todos/show')
     end
 
 end

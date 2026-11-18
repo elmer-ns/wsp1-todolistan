@@ -5,3 +5,17 @@ body {
   font-size: x-large;
   margin: 1em;
 }
+
+.items {
+  display: grid;
+  gap: 5px;
+
+  list-style: none;
+
+  grid-template-columns: repeat(2, 50%);
+}
+
+.item {
+  background-color: burlywood;
+  padding: 15px;
+}
