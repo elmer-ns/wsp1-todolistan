@@ -8,6 +8,16 @@
       </a>
 
       <p><%= todo['description'] %></p>
+
+      <form action="/todos/<%= todo['id'] %>/delete", method="POST">
+        <input type="submit" value="Ta bort">
+      </form>
+      <form action="/todos/<%= todo['id'] %>/update" method="POST">
+        <input type="hidden" name="name" value="<%= todo['name'] %>">
+        <input type="hidden" name="desciprion" value="<%= todo['description'] %>">
+        <input type="hidden" name="status" value="1">
+        <input type="submit" value="Klar">
+      </form>
     </li>
   <% end %>
 </ul>
@@ -22,6 +32,16 @@
       </a>
 
       <p><%= todo['description'] %></p>
+
+      <form action="/todos/<%= todo['id'] %>/delete", method="POST">
+        <input type="submit" value="Ta bort">
+      </form>
+      <form action="/todos/<%= todo['id'] %>/update" method="POST">
+        <input type="hidden" name="name" value="<%= todo['name'] %>">
+        <input type="hidden" name="desciprion" value="<%= todo['description'] %>">
+        <input type="hidden" name="status" value="0">
+        <input type="submit" value="Inte Klar">
+      </form>
     </li>
   <% end %>
 </ul>

@@ -1,0 +1,14 @@
+<h2>Ändra todo</h2>
+
+<form action="/todos/<%= @todo['id'] %>/update" method="POST">
+  <label>
+    Todo <input type="text" name="name" value="<%= @todo['name'] %>">
+  </label>
+
+  <label>
+    Beskrivning
+    <input type="text" name="description" value="<%= @todo['description'] %>">
+  </label>
+
+  <input type="submit" value="Spara">
+</form>
